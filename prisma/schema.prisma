@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Monitor {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  name        String
+  category    String   @default("Uncategorized") // New field for categorization
+  type        String   // "ping", "http", "tcp"
+  target      String   // IP, URL, or host
+  port        Int?     // For TCP checks
+  interval    Int      @default(60) // seconds
+  status      String   @default("PENDING") // PENDING, UP, DOWN
+  lastCheckedAt DateTime? // When the monitor was last checked
+  metrics     Metric[]
+}
+
+model Metric {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  monitor     Monitor  @relation(fields: [monitorId], references: [id])
+  monitorId   Int
+  status      String   // UP, DOWN
+  latency     Int?     // in milliseconds
+}
+
+model Setting {
+  key   String @id @unique
+  value String
+}

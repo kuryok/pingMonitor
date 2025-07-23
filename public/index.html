@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento Taguatinga Norte</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content container">
+            <h1 id="app-title"><i class="fas fa-chart-line"></i> Monitoramento Taguatinga Norte</h1>
+            <nav>
+                <button id="dashboard-btn" class="nav-button active"><i class="fas fa-tachometer-alt"></i> Dashboard</button>
+                <button id="settings-btn" class="nav-button"><i class="fas fa-cog"></i> Configurações</button>
+                <button id="theme-toggle" class="icon-button">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Dashboard View -->
+        <div id="dashboard-view" class="view active">
+            <section class="summary-section">
+                <h2>Status Geral</h2>
+                <div id="overall-status-cards" class="status-cards-grid">
+                    <div class="status-card up">
+                        <h3>Online</h3>
+                        <div class="count"></div>
+                        <div class="label">Monitores</div>
+                    </div>
+                    <div class="status-card down">
+                        <h3>Offline</h3>
+                        <div class="count"></div>
+                        <div class="label">Monitores</div>
+                    </div>
+                    <div class="status-card pending">
+                        <h3>Pendente</h3>
+                        <div class="count"></div>
+                        <div class="label">Monitores</div>
+                    </div>
+                    <div class="status-card total">
+                        <h3>Total</h3>
+                        <div class="count"></div>
+                        <div class="label">Monitores</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category-summary-section">
+                <h2>Monitores por Categoria</h2>
+                <div id="category-summary-grid" class="category-summary-grid">
+                    <!-- Category summary cards will be inserted here -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Settings View -->
+        <div id="settings-view" class="view">
+            <section class="app-settings-section">
+                <h2>Configurações da Aplicação</h2>
+                <form id="app-settings-form" class="settings-form">
+                    <div class="form-group">
+                        <label for="app-name">Nome do Monitoramento</label>
+                        <input type="text" name="appName" id="app-name" placeholder="Ex: Monitoramento Escritório">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar Configurações</button>
+                </form>
+            </section>
+
+            <section class="add-monitor-section">
+                <h2>Adicionar Novo Monitor</h2>
+                <form id="add-monitor-form" class="monitor-form">
+                    <div class="form-group">
+                        <label for="monitor-name">Nome</label>
+                        <input type="text" name="name" id="monitor-name" placeholder="Ex: Página Inicial Google" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="monitor-category">Categoria</label>
+                        <select name="category" id="monitor-category" required>
+                            <option value="Hosts">Hosts</option>
+                            <option value="Impressoras">Impressoras</option>
+                            <option value="Servidores">Servidores</option>
+                            <option value="Servicos">Serviços</option>
+                            <option value="Catracas">Catracas</option>
+                            <option value="Monitores">Monitores</option>
+                            <option value="Links">Links</option>
+                            <option value="Outros">Outros</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="monitor-type">Tipo</label>
+                        <select name="type" id="monitor-type" required>
+                            <option value="http">HTTP(s)</option>
+                            <option value="ping">Ping</option>
+                            <option value="tcp">Porta TCP</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="port-field-container" style="display: none;">
+                        <label for="port-input">Porta</label>
+                        <input type="number" name="port" id="port-input" placeholder="Ex: 80, 443, 22">
+                    </div>
+                    <div class="form-group">
+                        <label for="monitor-target">Alvo</label>
+                        <input type="text" name="target" id="monitor-target" placeholder="Ex: https://google.com ou 8.8.8.8" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Adicionar Monitor</button>
+                </form>
+            </section>
+
+            <section class="edit-monitor-section" style="display: none;">
+                <h2>Editar Monitor</h2>
+                <form id="edit-monitor-form" class="monitor-form">
+                    <input type="hidden" name="id" id="edit-monitor-id">
+                    <div class="form-group">
+                        <label for="edit-monitor-name">Nome</label>
+                        <input type="text" name="name" id="edit-monitor-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-monitor-category">Categoria</label>
+                        <select name="category" id="edit-monitor-category" required>
+                            <option value="Hosts">Hosts</option>
+                            <option value="Impressoras">Impressoras</option>
+                            <option value="Servidores">Servidores</option>
+                            <option value="Servicos">Serviços</option>
+                            <option value="Catracas">Catracas</option>
+                            <option value="Monitores">Monitores</option>
+                            <option value="Links">Links</option>
+                            <option value="Outros">Outros</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-monitor-type">Tipo</label>
+                        <select name="type" id="edit-monitor-type" required>
+                            <option value="http">HTTP(s)</option>
+                            <option value="ping">Ping</option>
+                            <option value="tcp">Porta TCP</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="edit-port-field-container">
+                        <label for="edit-port-input">Porta</label>
+                        <input type="number" name="port" id="edit-port-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-monitor-target">Alvo</label>
+                        <input type="text" name="target" id="edit-monitor-target" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-edit-btn">Cancelar</button>
+                </form>
+            </section>
+
+            
+        </div>
+
+        <!-- Category Detail View -->
+        <div id="category-detail-view" class="view">
+            <section>
+                <button id="back-to-dashboard-btn" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Voltar ao Dashboard</button>
+                <h2 id="category-detail-title"></h2>
+                <div id="category-detail-monitor-list" class="monitor-grid"></div>
+            </section>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+
+    <!-- Monitor Detail Modal -->
+    <div id="monitor-detail-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-category-title"></h2>
+            <div id="modal-monitor-list" class="monitor-grid"></div>
+        </div>
+    </div>
+</body>
+</html>

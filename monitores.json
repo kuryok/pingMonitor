@@ -1,0 +1,82 @@
+[
+    {
+        "nome": "Gateway - Firewall",
+        "host": "10.109.0.1",
+        "Categoria": "Core"
+    },
+    {
+        "nome": "Azure -  DNS",
+        "host": "10.61.1.68",
+        "Categoria": "Core"
+    },
+    {
+        "nome": "Avaya - VoiP",
+        "host": "sip.sescdf.com.br",
+        "Categoria": "Core"
+    },
+    {
+        "nome": "Impressora ADM - WF-C5890 Series",
+        "host": "10.109.6.1",
+        "Categoria": "Impressoras"
+    },
+    {
+        "nome": "Impressora Central de Atendimento - WF-C5890 Series",
+        "host": "10.109.6.2",
+        "Categoria": "Impressoras"
+    },
+    {
+        "nome": "Impressora Turismo - WF-C5890 Series",
+        "host": "10.109.6.4",
+        "Categoria": "Impressoras"
+    },
+    {
+        "nome": "Impressora Saúde - WF-C5890 Series",
+        "host": "10.109.6.6",
+        "Categoria": "Impressoras"
+    },
+    {
+        "nome": "Impressora DFE- WF-C5890 Series",
+        "host": "10.109.6.10",
+        "Categoria": "Impressoras"
+    },
+    {
+        "nome": "Meu RH",
+        "host": "portalrh.sescdf.com.br",
+        "Categoria": "Core"
+    },
+    {
+        "nome": "Link - Clicknet",
+        "host": "186.216.209.206",
+        "Categoria": "Link"
+    },
+    {
+        "nome": "Link - Hilan",
+        "host": "45.179.145.255",
+        "Categoria": "Link"
+    },
+    {
+        "nome": "Servidor de Impressão",
+        "host": "servimpress",
+        "Categoria": "Servidores"
+    },
+    {
+        "nome": "Servidor Sedeutilitários",
+        "host": "10.1.203.20",
+        "Categoria": "Servidores"
+    },
+    {
+        "nome": "Monitor LG - ",
+        "host": "10.109.4.1",
+        "Categoria": "Monitores"
+    },
+    {
+        "nome": "Clone do Monitor LG - ",
+        "host": "10.109.4.2",
+        "Categoria": "Monitores"
+    },
+    {
+        "nome": "Clone do Clone do Monitor LG - ",
+        "host": "10.109.4.3",
+        "Categoria": "Monitores"
+    }
+]
